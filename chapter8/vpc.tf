@@ -25,3 +25,11 @@ resource "aws_subnet" "private_subnet" {
     "Name" = "terraform101-private-subnet"
   }
 }
+
+resource "aws_internet_gateway" "igw" {
+  vpc_id = aws_vpc.vpc-dion.id
+
+  tags = {
+    "Name" = "terraform101-igw"
+  }
+}
