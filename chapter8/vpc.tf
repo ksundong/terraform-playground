@@ -5,3 +5,23 @@ resource "aws_vpc" "vpc-dion" {
     Name = "terraform-101"
   }
 }
+
+resource "aws_subnet" "public_subnet" {
+  vpc_id = aws_vpc.vpc-dion.id
+  cidr_block = "10.0.0.0/24"
+
+  availability_zone = "ap-northeast-2a"
+
+  tags = {
+    "Name" = "terraform101-public-subnet"
+  }
+}
+
+resource "aws_subnet" "private_subnet" {
+  vpc_id = aws_vpc.vpc-dion.id
+  cidr_block = "10.0.10.0/24"
+
+  tags = {
+    "Name" = "terraform101-private-subnet"
+  }
+}
