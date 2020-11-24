@@ -69,4 +69,8 @@ resource "aws_route" "public_igw_rule" {
 resource "aws_vpc_endpoint" "terraform101-s3-endpoint" {
   vpc_id = aws_vpc.vpc-dion.id
   service_name = "com.amazonaws.ap-northeast-2.s3"
+
+  tags = {
+    Name = "terraform101-s3"
+  }
 }
