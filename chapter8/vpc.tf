@@ -74,3 +74,8 @@ resource "aws_vpc_endpoint" "terraform101-s3-endpoint" {
     Name = "terraform101-s3"
   }
 }
+
+resource "aws_vpc_endpoint_route_table_association" "s3-endpoint-rule" {
+  route_table_id = aws_route_table.private_rt.id
+  vpc_endpoint_id = aws_vpc_endpoint.terraform101-s3-endpoint.id
+}
