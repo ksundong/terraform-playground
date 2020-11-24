@@ -65,3 +65,8 @@ resource "aws_route" "public_igw_rule" {
   destination_cidr_block = "0.0.0.0/0"
   gateway_id = aws_internet_gateway.igw.id
 }
+
+resource "aws_vpc_endpoint" "terraform101-s3-endpoint" {
+  vpc_id = aws_vpc.vpc-dion.id
+  service_name = "com.amazonaws.ap-northeast-2.s3"
+}
