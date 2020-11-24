@@ -33,3 +33,19 @@ resource "aws_internet_gateway" "igw" {
     "Name" = "terraform101-igw"
   }
 }
+
+resource "aws_route_table" "public_rt" {
+  vpc_id = aws_vpc.vpc-dion.id
+
+  tags = {
+    "Name" = "terraform101-rt-public"
+  }
+}
+
+resource "aws_route_table" "private_rt" {
+  vpc_id = aws_vpc.vpc-dion.id
+
+  tags = {
+    "Name" = "terraform101-rt-private"
+  }
+}
