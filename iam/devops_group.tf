@@ -5,9 +5,7 @@ resource "aws_iam_group" "devops_group" {
 resource "aws_iam_group_membership" "devops" {
   name = aws_iam_group.devops_group.name
 
-  users = [
-    aws_iam_user.gildong_hong.name
-  ]
+  users = var.devops_group_users
 
   group = aws_iam_group.devops_group.name
 }
